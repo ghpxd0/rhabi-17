@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bau da Sorte</title>
+    <style>
+        body {
+            background-color: #d8aaff; /* Plano de fundo roxo claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .caixa {
+            background-color: #d8aaff; /* Mesma cor de fundo da página */
+            border: 2px solid black; /* Borda preta nas extremidades */
+            border-radius: 15%;
+            width: 50%; /* Ajusta a largura conforme a tela */
+            max-width: 300px; /* Define uma largura máxima */
+            height: 25%; /* Ajusta a altura conforme a tela */
+            max-height: 150px; /* Define uma altura máxima */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        #bau {
+            width: 50%; /* Ajusta o tamanho do ícone conforme a tela */
+            max-width: 100px; /* Define uma largura máxima para o ícone */
+            height: 25%; /* Ajusta a altura do ícone conforme a tela */
+            max-height: 50px; /* Define uma altura máxima para o ícone */
+            border-radius: 15%;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa">
+        <div id="bau"></div>
+    </div>
+    <script>
+        const frases = [
+            "Frase 1",
+            "Frase 2",
+            // Adicione mais frases aqui
+        ];
+
+        const bau = document.getElementById("bau");
+
+        bau.addEventListener("click", () => {
+            const randomIndex = Math.floor(Math.random() * frases.length);
+            const randomFrase = frases[randomIndex];
+            alert(randomFrase); // Exibe a frase em um alerta (você pode personalizar isso)
+        });
+    </script>
+</body>
+</html>
