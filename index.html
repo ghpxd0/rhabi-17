@@ -29,6 +29,17 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        #player {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -45,6 +56,13 @@
         </p>
         <img src="heart.png" alt="Botão de imagem" id="clickButton" />
     </div>
+    <div id="player">
+        <audio controls autoplay loop>
+            <source src="Two Feet - Love Is A Bitch.mp3" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+    </div>
+      
 
     <script>
         const messageText1 = document.getElementById("messageText1");
