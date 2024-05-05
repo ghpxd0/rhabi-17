@@ -23,8 +23,8 @@
             background-color: #8A2BE2;
             color: white;
             border: none;
-            max-width: 20%;
-            max-height: 20%;
+            max-width: 25%;
+            max-height: 25%;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
@@ -34,36 +34,95 @@
 <body>
     <div class="box" id="messageBox">
         <!-- Mensagem inicial -->
-        <p>
+        <p id="messageText1">
             Não está bem né?
         </p>
-        <p>
+        <p id="messageText2">
             Sempre estarei aqui por você!
         </p>
-        <p>
+        <p id="messageText3">
             Tenho umas frases que talvez lhe ajude ❤️
         </p>
-        <img src="heart.jpeg" alt="Botão de imagem" id="clickButton" />
+        <img src="heart.png" alt="Botão de imagem" id="clickButton" />
     </div>
 
     <script>
-        const messageBox = document.getElementById("messageBox");
+        const messageText1 = document.getElementById("messageText1");
+        const messageText2 = document.getElementById("messageText2");
+        const messageText3 = document.getElementById("messageText3");
         const clickButton = document.getElementById("clickButton");
 
         // Array de mensagens
         const messages = [
-            "Sinceramente minha intenção desde a primeira vez que lhe vi foi que esse namoro fosse passageiro e queira terminar com vc, porém quero terminar esse namoro em um altar contigo e começar uma nova vida como 1 só",
-            "Se ela é incrível, ela não será fácil. Se ela é fácil, ela não será incrível. Se ela vale a pena, você não desiste. Se você desistir, você não é digno. A verdade é que todo mundo vai nos machucar. Nós só temos que encontrar aqueles pelos quais vale a pena sofrer",
-            "Uma terceira mensagem para você.",
-            "E mais uma mensagem!"
+            "Eu não entendo como eu consigo te amar tanto assim, muitas vezes tô cheio de problemas, de pensamentos, cansaço mental, mas sempre que eu lembro de você, converso com você, você me alivia tanto, você me faz sentir seguro, é como se você tivesse poder sobre mim, não sei explicar, só sei que te amo dmss.",
+
+            "Sinceramente minha intenção desde a primeira vez que lhe vi foi que esse namoro fosse passageiro e queira terminar com vc, porém quero terminar esse namoro em um altar contigo e começar uma nova vida como um só.",
+
+            "Se ela é incrível, ela não será fácil. Se ela é fácil, ela não será incrível. Se ela vale a pena, você não desiste. Se você desistir, você não é digno. A verdade é que todo mundo vai nos machucar. Nós só temos que encontrar aqueles pelos quais vale a pena sofrer.",
+
+            "Podem existir bilhões de pessoas no mundo, mas nenhuma chega perto do quão incrível você é!!!",
+
+            "Eu quero te dizer que te acho incrível, eu admira muito você e tenho muito orgulho de voce.",
+
+            "Eu espero que a cada novo dia, você se dê conta do quão especial e incrível você é, que jamais esqueça de olhar para si mesma e enxergar a sua linda força, seus lindos detalhes, admirar suas incríveis capacidades e perceber o quanto a vida é linda com você fazendo parte dela.",
+
+            "Eu gosto de ouvir o som da tua voz, ela parece silenciar todo esse barulho que carrego em mim.",
+
+            "Mas ao te ver pela primeira vez, o tempo parou e Deus no meu coração sussurrou: É ela.",
+
+            "Quando falei a primeira vez com você, não imaginava que você se tornaria tudo para mim.",
+
+            "Gosto do jeito que ficamos quando estamos juntos, meio loucos, fazendo graça pra eu rir, conversando sobre qualquer coisa, faz eu esquecer do mundo por algumas horas.",
+
+            "O lugar mais confortável do mundo é dentro do teu abraço!",
+
+            "Ei, é com você que eu quero casar, é seu abraço que eu quero receber logo cedo, é seu colo que eu quero todo dia, é seu nome que eu quero na minha aliança. Entendeu? Eu só quero você.",
+
+            "Eu odeio te ver mal, te amo tanto que parece que você faz parte de mim, quando você fica mal eu também fico mal, sempre estarei aqui prate fazer feliz, ta?",
+
+            "Juro de dedinho que sempre vou amar você e não é porque escolhi, é porque Deus que te escolheu pra mim. Porque quando orei pedindo que fizesse o melhor pra mim, Ele te trouxe ao meu encontro.",
+
+            "Você me faz tão bem que só de pensar, eu deixo um sorriso escapar.",
+
+            "Eu quero te dizer que te acho incrível, eu admiral muito você e tenho muito orgulho de voce!",
+
+            "Eu tenho muito orgulho de todo o seu esforço, de todas as suas conquistas. Saiba que eu estarei ao seu lado torcendo por você e te lembrando o quanto você é capaz.",
+
+            "Eu só quero que você saiba que tô sempre orando por ti... mesmo de longe tô mandando energia boa.",
+
+            "Você é o grande amor que eu sempre quis ter.",
+
+            "Sonho com voce todos os dias; e eu nem preciso dormir pra isso acontecer...",
+
+            "Você só traz coisas boas pra minha vida, me deu mais maturidade pra tomar decisões, Με deu apoio pra crescer e ter uma vida melhor, e quem sabe uma familia pra chamar de nossa!",
+
+            "Nunca imaginei que aquele simples 'oi' poderia se tornar o 'oi' que me faz sorrir todos os dias.",
+
+            "Me apaixonei até pelas letras do seu nome, pelos seus olhos, pelo seu sorriso doce, pela sua voz... Me apaixonei por você completamente...",
+
+            "Se você soubesse o quanto você é importante para mim! Eu amo seu jeitinho, seu sorriso, sua voz, obrigado por ser essa pessoa incrível.",
+
+            "Você é a pessoa que mais me acalma e me faz sentir em paz. Você é o meu lugar de refúgio e sossego. Estar com você é surreal de bom. Estar com você é como estar nas nuvens. Ter você é tão gratificante que agradeço a Deus todos os dias.",
+
+            "Eu te amo tanto, que enxergo teu sorriso mesmo com os olhos fechados... Escuto tua voz mesmo em silêncio, te sinto ao meu lado, mesmo estando longe agora...",
+
+            "Meu sonho é passar um dia frio abraçado contigo, cobertos, assistindo um filme, esquecer de tudo me aconchegar no teu abraço, nossa... Como e bom per voce pra amar."
+
         ];
 
-        let currentIndex = 0;
+        let firstClick = true;
 
         // Função para exibir a próxima mensagem
         function displayNextMessage() {
-            messageBox.textContent = messages[currentIndex];
-            currentIndex = (currentIndex + 1) % messages.length;
+            if (firstClick) {
+                messageText1.style.display = 'none';
+                messageText2.style.display = 'none';
+                messageText3.style.display = 'none';
+                firstClick = false;
+            }
+            let randomIndex = Math.floor(Math.random() * messages.length);
+            messageText1.textContent = messages[randomIndex];
+            messageText1.style.display = 'block';
         }
 
         // Event listener para o botão
