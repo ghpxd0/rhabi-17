@@ -1,59 +1,73 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bau da Sorte</title>
     <style>
         body {
-            background-color: #d8aaff; /* Plano de fundo roxo claro */
+            background-image: url(gogh-background.jpg);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
-        .caixa {
-            background-color: #d8aaff; /* Mesma cor de fundo da página */
-            border: 2px solid black; /* Borda preta nas extremidades */
+        .box {
+            background-color: #8A2BE2; /* Roxo escuro */
+            padding: 20px;
             border-radius: 15%;
-            width: 50%; /* Ajusta a largura conforme a tela */
-            max-width: 300px; /* Define uma largura máxima */
-            height: 25%; /* Ajusta a altura conforme a tela */
-            max-height: 150px; /* Define uma altura máxima */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
+            text-align: center;
+            color: white;
         }
-        #bau {
-            width: 50%; /* Ajusta o tamanho do ícone conforme a tela */
-            max-width: 100px; /* Define uma largura máxima para o ícone */
-            height: 25%; /* Ajusta a altura do ícone conforme a tela */
-            max-height: 50px; /* Define uma altura máxima para o ícone */
-            border-radius: 15%;
-            background-color: aliceblue;
+        #clickButton {
+            background-color: #8A2BE2;
+            color: white;
+            border: none;
+            max-width: 10%;
+            max-height: 10%;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="caixa">
-        <div id="bau"></div>
+    <div class="box" id="messageBox">
+        <!-- Mensagem inicial -->
+        <p>
+            Não está bem né?
+        </p>
+        <p>
+            Sempre estarei aqui por você!
+        </p>
+        <p>
+            Tenho umas frases que talvez lhe ajude ❤️
+        </p>
+        <img src="heart.jpeg" alt="Botão de imagem" id="clickButton" />
     </div>
+
     <script>
-        const frases = [
-            "Frase 1",
-            "Frase 2",
-            // Adicione mais frases aqui
+        const messageBox = document.getElementById("messageBox");
+        const clickButton = document.getElementById("clickButton");
+
+        // Array de mensagens
+        const messages = [
+            "Sinceramente minha intenção desde a primeira vez que lhe vi foi que esse namoro fosse passageiro e queira terminar com vc, porém quero terminar esse namoro em um altar contigo e começar uma nova vida como 1 só",
+            "Se ela é incrível, ela não será fácil. Se ela é fácil, ela não será incrível. Se ela vale a pena, você não desiste. Se você desistir, você não é digno. A verdade é que todo mundo vai nos machucar. Nós só temos que encontrar aqueles pelos quais vale a pena sofrer",
+            "Uma terceira mensagem para você.",
+            "E mais uma mensagem!"
         ];
 
-        const bau = document.getElementById("bau");
+        let currentIndex = 0;
 
-        bau.addEventListener("click", () => {
-            const randomIndex = Math.floor(Math.random() * frases.length);
-            const randomFrase = frases[randomIndex];
-            alert(randomFrase); // Exibe a frase em um alerta (você pode personalizar isso)
-        });
+        // Função para exibir a próxima mensagem
+        function displayNextMessage() {
+            messageBox.textContent = messages[currentIndex];
+            currentIndex = (currentIndex + 1) % messages.length;
+        }
+
+        // Event listener para o botão
+        clickButton.addEventListener("click", displayNextMessage);
     </script>
 </body>
 </html>
