@@ -29,6 +29,10 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        #hug {
+            max-width: 10%;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -43,6 +47,13 @@
         <p id="messageText3">
             Tenho umas frases que talvez lhe ajude ❤️
         </p>
+        <p id="messageText4">
+            Caso precise de um abraço, clique aqui
+            <!-- Link com ícone do WhatsApp -->
+            <a href="https://wa.link/l5v341" target="_blank">
+                <img id="hug" src="hug.jpeg" alt="WhatsApp" class="whatsapp-icon"/>
+            </a>
+        </p>
         <img src="heart.png" alt="Botão de imagem" id="clickButton" />
     </div>
 
@@ -50,6 +61,7 @@
         const messageText1 = document.getElementById("messageText1");
         const messageText2 = document.getElementById("messageText2");
         const messageText3 = document.getElementById("messageText3");
+        const messageText4 = document.getElementById("messageText4")
         const clickButton = document.getElementById("clickButton");
 
         // Array de mensagens
@@ -313,6 +325,7 @@
                 messageText1.style.display = 'none';
                 messageText2.style.display = 'none';
                 messageText3.style.display = 'none';
+                messageText4.style.display = 'none';
                 firstClick = false;
             }
             let randomIndex = Math.floor(Math.random() * messages.length);
